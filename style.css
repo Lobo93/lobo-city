@@ -120,18 +120,18 @@ body {
 	height: 580px;
 	position: absolute;
 	left: 50%;
-	top: 32px;
-	transform: translateX(-50%) rotate(90deg);
+	top: 50%;
 	animation: day-night var(--24h) calc(-0.75 * var(--24h)) linear infinite
 }
 
 @keyframes day-night {
 	0% {
-		transform: translateX(-50%) rotate(0deg)
+		transform: translate(-50%, -35%) rotate(0deg);
 	}
 
 	100% {
-		transform: translateX(-50%) rotate(360deg)
+		transform: translate(-50%, -35%) rotate(360deg);
+
 	}
 }
 
@@ -153,11 +153,11 @@ body {
 
 @keyframes moon {
 	0% {
-		transform: rotate(360deg)
+		transform: rotate(360deg);
 	}
 
 	100% {
-		transform: rotate(0deg)
+		transform: rotate(0deg);
 	}
 }
 
@@ -224,7 +224,7 @@ body {
 	width: 64px;
 	background-color: #888;
 	border-top: solid 3px #8883;
-	animation: building var(--24h) linear infinite;
+	animation: building var(--24h) linear infinite, building-lights var(--24h) linear infinite;
 	background-size: 10px 20px;
 	background-position: 5px -5px;
 	background-image: conic-gradient(transparent 90deg, transparent 90deg 180deg, var(--window) 180deg 270deg, transparent 270deg)
@@ -239,7 +239,6 @@ body {
 	top: -43px;
 	background-color: #888;
 	animation: building var(--24h) linear infinite;
-	background-image: none !important;
 }
 
 @keyframes building {
@@ -258,19 +257,44 @@ body {
 
 	50% {
 		background-color: #532;
+		--window: #2222;
 	}
 
 	55% {
 		background-color: #335;
+		--window: #ee8a;
 	}
 
 	95% {
 		background-color: #335;
+		--window: #ee8a;
 	}
 
 	100% {
 		background-color: #864;
+		--window: #2222;
+	}
+}
+
+@keyframes building-lights {
+	0% {
+		--window: #2222;
+	}
+
+	50% {
+		--window: #2222;
+	}
+
+	55% {
 		--window: #ee8a;
+	}
+
+	95% {
+		--window: #ee8a;
+	}
+
+	100% {
+		--window: #2222;
 	}
 }
 
@@ -374,6 +398,17 @@ body {
 
 .car::before {
 	content: '';
+	width: 20px;
+	height: 10px;
+	position: absolute;
+	left: -4px;
+	bottom: -5px;
+	background-image: radial-gradient(circle at center, #0003 40%, transparent 40%);
+	background-size: 10px 10px;
+}
+
+.car::after {
+	content: '';
 	position: absolute;
 	bottom: 0;
 	height: 5.5px;
@@ -467,8 +502,20 @@ body {
 		--light: transparent
 	}
 
-	100% {
+	50% {
+		--light: transparent
+	}
+
+	55% {
 		--light: #ee83;
+	}
+
+	95% {
+		--light: #ee83;
+	}
+
+	100% {
+		--light: transparent
 	}
 }
 
