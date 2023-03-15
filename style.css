@@ -1,0 +1,505 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+
+:root {
+	--24h: 150s;
+}
+
+body {
+	height: 100vh;
+	margin: 0;
+	background-color: #333;
+	box-shadow: inset 0 0 200px #000c
+}
+
+.frame {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(.3);
+	width: 640px;
+	height: 480px;
+	background-color: #ddd;
+	border: solid 16px #eee;
+	box-shadow: -4px 4px 24px rgba(0 0 0 / 80%);
+	overflow: hidden;
+}
+
+@media (min-width: 375px) {
+	.frame {
+		transform: translate(-50%, -50%) scale(.5);
+	}
+}
+
+@media (min-width: 580px) {
+	.frame {
+		transform: translate(-50%, -50%) scale(.75);
+	}
+}
+
+@media (min-width: 800px) {
+	.frame {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.sky {
+	width: 100%;
+	height: 400px;
+	animation: sky var(--24h) linear infinite;
+}
+
+.sky::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(0, #da3, transparent);
+	animation: sky-gradient var(--24h) linear infinite;
+}
+
+@keyframes sky {
+	0% {
+		background-color: #48f;
+	}
+
+	40% {
+		background-color: #48f;
+	}
+
+	50% {
+		background-color: #639;
+	}
+
+	55% {
+		background-color: #013;
+	}
+
+	95% {
+		background-color: #013;
+	}
+
+	100% {
+		background-color: #48f;
+	}
+}
+
+@keyframes sky-gradient {
+	0% {
+		opacity: 1;
+	}
+
+	20% {
+		opacity: 0;
+	}
+
+	40% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	55% {
+		opacity: 0;
+	}
+
+	95% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.day-night {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 580px;
+	position: absolute;
+	left: 50%;
+	top: 32px;
+	transform: translateX(-50%) rotate(90deg);
+	animation: day-night var(--24h) calc(-0.75 * var(--24h)) linear infinite
+}
+
+@keyframes day-night {
+	0% {
+		transform: translateX(-50%) rotate(0deg)
+	}
+
+	100% {
+		transform: translateX(-50%) rotate(360deg)
+	}
+}
+
+.sun {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #eed;
+	box-shadow: 0 0 32px 8px #febb
+}
+
+.moon {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	box-shadow: inset -10px -5px 2px #dee, 8px 4px 8px -8px #bef8;
+	animation: moon var(--24h) calc(-0.75 * var(--24h)) linear infinite
+}
+
+@keyframes moon {
+	0% {
+		transform: rotate(360deg)
+	}
+
+	100% {
+		transform: rotate(0deg)
+	}
+}
+
+.buildings {
+	position: absolute;
+	bottom: 80px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.far-building {
+	position: relative;
+	width: 32px;
+	background-color: #aaa;
+	animation: far-building var(--24h) linear infinite;
+}
+
+.far-building.antenna::before {
+	content: '';
+	height: 24px;
+	width: 2px;
+	position: absolute;
+	left: calc(50% - 1px);
+	top: -24px;
+	background-color: #aaa;
+	animation: far-building var(--24h) linear infinite;
+}
+
+@keyframes far-building {
+	0% {
+		background-color: #974;
+	}
+
+	20% {
+		background-color: #57c;
+	}
+
+	40% {
+		background-color: #57c;
+	}
+
+	50% {
+		background-color: #955;
+	}
+
+	55% {
+		background-color: #224;
+	}
+
+	95% {
+		background-color: #224;
+	}
+
+	100% {
+		background-color: #974;
+	}
+}
+
+.building {
+	position: relative;
+	width: 64px;
+	background-color: #888;
+	border-top: solid 3px #8883;
+	animation: building var(--24h) linear infinite;
+	background-size: 10px 20px;
+	background-position: 5px -5px;
+	background-image: conic-gradient(transparent 90deg, transparent 90deg 180deg, var(--window) 180deg 270deg, transparent 270deg)
+}
+
+.building.antenna::before {
+	content: '';
+	height: 40px;
+	width: 2px;
+	position: absolute;
+	left: calc(50% - 1px);
+	top: -43px;
+	background-color: #888;
+	animation: building var(--24h) linear infinite;
+	background-image: none !important;
+}
+
+@keyframes building {
+	0% {
+		background-color: #864;
+		--window: #2222;
+	}
+
+	20% {
+		background-color: #567;
+	}
+
+	40% {
+		background-color: #567;
+	}
+
+	50% {
+		background-color: #532;
+	}
+
+	55% {
+		background-color: #335;
+	}
+
+	95% {
+		background-color: #335;
+	}
+
+	100% {
+		background-color: #864;
+		--window: #ee8a;
+	}
+}
+
+.size-60 {
+	height: 60px;
+}
+
+.size-80 {
+	height: 80px;
+}
+
+.size-100 {
+	height: 100px;
+}
+
+.size-120 {
+	height: 120px;
+}
+
+.size-140 {
+	height: 140px;
+}
+
+.size-160 {
+	height: 160px;
+}
+
+.size-180 {
+	height: 180px;
+}
+
+.size-200 {
+	height: 200px;
+}
+
+.size-220 {
+	height: 220px;
+}
+
+.size-240 {
+	height: 240px;
+}
+
+.street {
+	position: relative;
+	height: 80px;
+	border-top: solid 4px #8883;
+	border-bottom: solid 6px #8884;
+	box-sizing: border-box;
+	animation: street var(--24h) linear infinite;
+	background-color: #444;
+	background-size: 20px 3px;
+	background-position: 0 45%;
+	background-repeat: repeat-x;
+	background-image: linear-gradient(90deg, transparent 50%, #eee5 50%);
+}
+
+@keyframes street {
+	0% {
+		background-color: #753;
+	}
+
+	20% {
+		background-color: #456;
+	}
+
+	40% {
+		background-color: #456;
+	}
+
+	50% {
+		background-color: #421;
+	}
+
+	55% {
+		background-color: #335;
+	}
+
+	95% {
+		background-color: #335;
+	}
+
+	100% {
+		background-color: #753;
+	}
+}
+
+.car {
+	position: absolute;
+	top: 8px;
+	width: 12px;
+	height: 10px;
+	border-radius: 32% 32% 0 0;
+	margin: 0 10px;
+	animation: car var(--24h) linear infinite, car-movement 3s linear infinite;
+	background-size: 5px 3px;
+	background-position: 2.5px 2px;
+	background-repeat: repeat-x;
+	background-image: linear-gradient(90deg, transparent 50%, #ddd3 50%);
+}
+
+.car::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	height: 5.5px;
+	width: 20px;
+	left: -4px;
+	border-radius: 32% 32% 0 0;
+	animation: car var(--24h) linear infinite;
+}
+
+.car-right {
+	transform: scale(1.1);
+	top: 46px;
+	animation-direction: normal, reverse;
+}
+
+.car-1 {
+	animation-delay: 0s, -0.5s;
+}
+
+.car-2 {
+	animation-delay: 0s, -1s;
+}
+
+.car-3 {
+	animation-delay: 0s, -1.5s;
+}
+
+.car-4 {
+	animation-delay: 0s, -2s;
+}
+
+.car-5 {
+	animation-delay: 0s, -2.5s;
+}
+
+@keyframes car {
+	0% {
+		background-color: #864;
+	}
+
+	20% {
+		background-color: #678;
+	}
+
+	40% {
+		background-color: #678;
+	}
+
+	50% {
+		background-color: #532;
+	}
+
+	55% {
+		background-color: #223;
+	}
+
+	95% {
+		background-color: #223;
+	}
+
+	100% {
+		background-color: #864;
+	}
+}
+
+@keyframes car-movement {
+	0% {
+		left: -40px;
+	}
+
+	100% {
+		left: calc(100% + 20px);
+	}
+}
+
+.lights {
+	position: absolute;
+	bottom: 45px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.light {
+	box-shadow: 0 0 40px 32px var(--light);
+	animation: light var(--24h) linear infinite;
+}
+
+@keyframes light {
+	0% {
+		--light: transparent
+	}
+
+	100% {
+		--light: #ee83;
+	}
+}
+
+.signature {
+	position: absolute;
+	top: -40px;
+	left: 10px;
+	font-family: 'Nothing You Could Do', cursive;
+	font-size: 50px;
+	transform: rotate(-8deg);
+	animation: signature var(--24h) linear infinite;
+}
+
+@keyframes signature {
+	0% {
+		color: #d22;
+	}
+
+	45% {
+		color: #d22;
+	}
+
+	55% {
+		color: #f4b;
+	}
+
+	95% {
+		color: #f4b;
+	}
+
+	100% {
+		color: #d22;
+	}
+}
