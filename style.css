@@ -441,11 +441,11 @@ body {
 
 @keyframes car-movement {
 	0% {
-		left: -40px;
+		left: calc(100% + 20px);
 	}
 
 	100% {
-		left: calc(100% + 20px);
+		left: -40px;
 	}
 }
 
