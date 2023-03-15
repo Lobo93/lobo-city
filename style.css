@@ -227,7 +227,6 @@ body {
 	animation: building var(--24h) linear infinite, building-lights var(--24h) linear infinite;
 	background-size: 10px 20px;
 	background-position: 5px -5px;
-	background-image: conic-gradient(transparent 90deg, transparent 90deg 180deg, var(--window) 180deg 270deg, transparent 270deg)
 }
 
 .building.antenna::before {
@@ -244,7 +243,6 @@ body {
 @keyframes building {
 	0% {
 		background-color: #864;
-		--window: #2222;
 	}
 
 	20% {
@@ -257,44 +255,40 @@ body {
 
 	50% {
 		background-color: #532;
-		--window: #2222;
 	}
 
 	55% {
 		background-color: #335;
-		--window: #ee8a;
 	}
 
 	95% {
 		background-color: #335;
-		--window: #ee8a;
 	}
 
 	100% {
 		background-color: #864;
-		--window: #2222;
 	}
 }
 
 @keyframes building-lights {
 	0% {
-		--window: #2222;
+		background-image: conic-gradient(transparent 90deg, transparent 90deg 180deg, #2222 180deg 270deg, transparent 270deg);
 	}
 
 	50% {
-		--window: #2222;
+		background-image: conic-gradient(transparent 90deg, transparent 90deg 180deg, #2222 180deg 270deg, transparent 270deg);
 	}
 
 	55% {
-		--window: #ee8a;
+		background-image: conic-gradient(transparent 90deg, transparent 90deg 180deg, #ee8a 180deg 270deg, transparent 270deg);
 	}
 
 	95% {
-		--window: #ee8a;
+		background-image: conic-gradient(transparent 90deg, transparent 90deg 180deg, #ee8a 180deg 270deg, transparent 270deg);
 	}
 
 	100% {
-		--window: #2222;
+		background-image: conic-gradient(transparent 90deg, transparent 90deg 180deg, #2222 180deg 270deg, transparent 270deg);
 	}
 }
 
@@ -493,29 +487,28 @@ body {
 }
 
 .light {
-	box-shadow: 0 0 40px 32px var(--light);
 	animation: light var(--24h) linear infinite;
 }
 
 @keyframes light {
 	0% {
-		--light: transparent
+		box-shadow: 0 0 40px 32px transparent;
 	}
 
 	50% {
-		--light: transparent
+		box-shadow: 0 0 40px 32px transparent;
 	}
 
 	55% {
-		--light: #ee83;
+		box-shadow: 0 0 40px 32px #ee83;
 	}
 
 	95% {
-		--light: #ee83;
+		box-shadow: 0 0 40px 32px #ee83;
 	}
 
 	100% {
-		--light: transparent
+		box-shadow: 0 0 40px 32px transparent;
 	}
 }
 
