@@ -117,7 +117,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 580px;
+	height: 600px;
 	position: absolute;
 	left: 50%;
 	top: 50%;
