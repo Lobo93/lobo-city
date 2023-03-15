@@ -487,7 +487,7 @@ body {
 }
 
 .light {
-	animation: light var(--24h) linear infinite;
+	animation: light var(--24h) cubic-bezier(1, 0, 0, 1) infinite;
 }
 
 @keyframes light {
@@ -495,19 +495,19 @@ body {
 		box-shadow: 0 0 40px 32px transparent;
 	}
 
-	50% {
+	52.49% {
 		box-shadow: 0 0 40px 32px transparent;
 	}
 
-	55% {
+	52.51% {
 		box-shadow: 0 0 40px 32px #ee83;
 	}
 
-	95% {
+	97.49% {
 		box-shadow: 0 0 40px 32px #ee83;
 	}
 
-	100% {
+	97.51% {
 		box-shadow: 0 0 40px 32px transparent;
 	}
 }
